@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified">
+	<!-- 商品URLurl 256 bytes ［必填］ -->
+	<xs:element name="loc" type="xs:string" default="" />
+	<!-- 站点名称 50 bytes ［必填］ -->
+	<xs:element name="website" type="xs:string" default="" />
+	<!-- 各城市对应的页面url ［必填］ 如此处应为http://xxx.baidu.com/beijing/ 256 bytes  -->
+	<xs:element name="siteurl" type="xs:string" default="" />
+	<!-- 城市名称 ［必填］（城市名称不需要附带省、市、区、县等字，如果是全国范围请指明：全国） 16 bytes  -->
+	<xs:element name="city" type="xs:string" default="" />
+	<!-- 团购商家的大众点评shopid，多个以英文逗号分隔,512 bytes ［值可以为，字段必须有］ -->
+	<xs:element name="dpshopid" type="xs:string" default="" />
+	<!-- 团购商家的大概方位，多个以英文逗号分隔，按照填写顺序显示商家,512 bytes［值可为空，字段必须有］-->
+	<xs:element name="range" type="xs:string" default="" />
+	<!-- 团购商家的具体位置，多个以英文逗号分隔，按照填写顺序显示商家,2048 bytes［值可为空，字段必须有］-->
+	<xs:element name="address" type="xs:string" default="" />
+	<!-- 商品标题 512 bytes［必填］ -->
+	<xs:element name="title" type="xs:string" default="" />
+	<!-- 商品图片url 256 bytes ［必填］ -->
+	<xs:element name="image" type="xs:string" default="" />
+
+	<!--同一个城市如果推出多个团购商品，需要设置其中一款商品为今日主打商品，主打商品的这个字段是为1,非主打商品为0, 1bytes [值可为空，字段必须有] -->
+	<xs:element name="major" type="xs:integer" default="0" />
+	<!-- 团购分类 1=餐饮美食，2=休闲娱乐，3=美容化妆，4=网上购物，5=运动健身, 4 bytes [如果不能确定分类，值可以为，字段必须有] -->
+	<xs:element name="category" type="xs:integer" default="0" />
+	<!-- 商品开始时间 10 bytes ［必填］ -->
+	<xs:element name="startTime" type="xs:integer" default="0" />
+	<!-- 商品结束时间 10 bytes ［必填］ -->
+	<xs:element name="endTime" type="xs:integer" default="0" />
+	<!-- 已购买人数 10 bytes ［必填］ -->
+	<xs:element name="bought" type="xs:integer" default="0" />
+
+	<!-- 商品原价 12 bytes ［必填］ -->
+	<xs:element name="value" type="xs:decimal" default="0.0" />
+	<!-- 商品现价 12 bytes ［必填］ -->
+	<xs:element name="price" type="xs:decimal" default="0.0" />
+	<!-- 商品折扣 6 bytes ［必填］ -->
+	<xs:element name="rebate" type="xs:decimal" default="0.0" />
+
+	<xs:element name="display">
+		<xs:complexType>
+			<xs:all>
+				<xs:element ref="website" />
+				<xs:element ref="siteurl" />
+				<xs:element ref="city" />
+				<xs:element ref="dpshopid" />
+				<xs:element ref="range" />
+				<xs:element ref="address" />
+				<xs:element ref="title" />
+				<xs:element ref="image" />
+				<xs:element ref="major" />
+				<xs:element ref="category" />
+				<xs:element ref="startTime" />
+				<xs:element ref="endTime" />
+				<xs:element ref="bought" />
+				<xs:element ref="value" />
+				<xs:element ref="price" />
+				<xs:element ref="rebate" />
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="data">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="display" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="url">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="loc" />
+				<xs:element ref="data" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="urlset">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="url" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>

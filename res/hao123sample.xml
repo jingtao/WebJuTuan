@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="hao123.xsd">
+	<url>
+		<loc>http://xxx.baidu.com/xxxxxx</loc>
+		<!-- 商品URLurl 256 bytes ［必填］ -->
+		<data>
+			<display>
+				<website>美团</website>
+				<!-- 站点名称 50 bytes ［必填］ -->
+				<siteurl>http://xxx.baidu.com</siteurl>
+				<!-- 站点名称（请填写各城市对应的页面url，如此处应为http://xxx.baidu.com/beijing/） 256 bytes 
+					［必填］ -->
+				<city>北京</city>
+				<!-- 城市名称（城市名称不需要附带省、市、区、县等字，如果是全国范围请指明：全国） 16 bytes ［必填］ -->
+				<category>1</category>
+				<!-- 团购分类 1=餐饮美食，2=休闲娱乐，3=美容化妆，4=网上购物，5=运动健身, 4 bytes [如果不能确定分类，值可以为，字段必须有] -->
+				<dpshopid>507810, 2218060</dpshopid>
+				<!-- 团购商家的大众点评shopid，多个以英文逗号分隔,512 bytes ［值可以为，字段必须有］-->
+				<range>三里屯,中关村</range>
+				<!-- 团购商家的大概方位，多个以英文逗号分隔，按照填写顺序显示商家,512 bytes［值可为空，字段必须有］-->
+				<address>北京市三里屯XX路XX大厦,中关村YY路XX广场</address>
+				<!-- 团购商家的具体位置，多个以英文逗号分隔，按照填写顺序显示商家,2048 bytes［值可为空，字段必须有］-->
+				<major>1</major>
+				<!--同一个城市如果推出多个团购商品，需要设置其中一款商品为今日主打商品，主打商品的这个字段是为1,非主打商品为0, 1bytes [值可为空，字段必须有] -->
+				<title>原价188元的“玛雅蛋糕”仅售49元！</title>
+				<!-- 商品标题 512 bytes［必填］ -->
+				<image>http://maya.xxx.com/xxx.gif</image>
+				<!-- 商品图片url 256 bytes ［必填］ -->
+				<startTime>1275926400</startTime>
+				<!-- 商品开始时间 10 bytes ［必填］ -->
+				<endTime>1291910399</endTime>
+				<!-- 商品结束时间 10 bytes ［必填］ -->
+				<value>188.00</value>
+				<!-- 商品原价 12 bytes ［必填］ -->
+				<price>49.00</price>
+				<!-- 商品现价 12 bytes ［必填］ -->
+				<rebate>2.6</rebate>
+				<!-- 商品折扣 6 bytes ［必填］ -->
+				<bought>100</bought>
+				<!-- 已购买人数 10 bytes ［必填］ -->
+			</display>
+		</data>
+	</url>
+</urlset>

@@ -5,6 +5,13 @@ import com.jt.web.client.GreetingService;
 import com.jt.web.shared.FieldVerifier;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
+import java.net.URL;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
+
 /**
  * The server side implementation of the RPC service.
  */
@@ -25,6 +32,16 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements Greetin
         // Escape data from the client to avoid cross-site script vulnerabilities.
         input = escapeHtml(input);
         userAgent = escapeHtml(userAgent);
+        
+        try {
+            JAXBContext context = JAXBContext.newInstance("com.jt.web.server.xml.gen.hao123");
+            Unmarshaller unmarshaller = context.createUnmarshaller();
+            Object unmarshal = unmarshaller.unmarshal(new URL("http://www.nuomi.com/api/dailydeal?version=v1&city=beijing"));
+            System.out.println(unmarshal);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
         return "Hello, " + input + "!<br><br>I am running " + serverInfo
                 + ".<br><br>It looks like you are using:<br>" + userAgent;
